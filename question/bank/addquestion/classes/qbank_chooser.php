@@ -17,25 +17,27 @@
 /**
  * The qbank_chooser renderable.
  *
- * @package    core_question
+ * @package    qbank_addquestion
  * @copyright  2016 Frédéric Massart - FMCorz.net
+ * @author     2021 Safat Shahin <safatshahin@catalyst-au.net>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace core_question\output;
+namespace qbank_addquestion;
 defined('MOODLE_INTERNAL') || die();
 
+use context;
 use context_course;
 use core\output\chooser_section;
 use lang_string;
 use moodle_url;
 use question_bank;
-
+use stdClass;
 
 /**
  * The qbank_chooser renderable class.
  *
- * @package    core_question
+ * @package    qbank_addquestion
  * @copyright  2016 Frédéric Massart - FMCorz.net
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -51,8 +53,6 @@ class qbank_chooser extends \core\output\chooser {
      * @param context $context The relevant context.
      */
     public function __construct($real, $fake, $course, $hiddenparams, $context) {
-        debugging('output/qbank_chooser has been moved to bank/addquestion, 
-        please use addquestion plugin instead', DEBUG_DEVELOPER);
         $sections = [];
         $sections[] = new chooser_section('questions', new lang_string('questions', 'question'),
                 array_map(function($qtype) use ($context) {
@@ -87,8 +87,6 @@ class qbank_chooser extends \core\output\chooser {
      * @return qbank_chooser
      */
     public static function get($course, $hiddenparams, array $allowedqtypes = null) {
-        debugging('output/qbank_chooser has been moved to bank/addquestion, 
-        please use addquestion plugin instead', DEBUG_DEVELOPER);
         $realqtypes = array();
         $fakeqtypes = array();
 

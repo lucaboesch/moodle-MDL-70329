@@ -17,14 +17,16 @@
 /**
  * The qbank_chooser_item renderable.
  *
- * @package    core_question
+ * @package    qbank_addquestion
  * @copyright  2016 Frédéric Massart - FMCorz.net
+ * @author     2021 Safat Shahin <safatshahin@catalyst-au.net>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace core_question\output;
+namespace qbank_addquestion;
 defined('MOODLE_INTERNAL') || die();
 
+use context;
 use lang_string;
 use pix_icon;
 
@@ -32,7 +34,7 @@ use pix_icon;
 /**
  * The qbank_chooser_item renderable class.
  *
- * @package    core_question
+ * @package    qbank_addquestion
  * @copyright  2016 Frédéric Massart - FMCorz.net
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -45,8 +47,6 @@ class qbank_chooser_item extends \core\output\chooser_item {
      * @param context $context The relevant context.
      */
     public function __construct($qtype, $context) {
-        debugging('output/qbank_chooser_item has been moved to bank/addquestion, 
-        please use addquestion plugin instead', DEBUG_DEVELOPER);
         $icon = new pix_icon('icon', $qtype->local_name(), $qtype->plugin_name(), [
             'class' => 'icon',
             'title' => $qtype->local_name()
